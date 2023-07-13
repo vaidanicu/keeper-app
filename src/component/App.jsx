@@ -1,11 +1,16 @@
 import { Footer } from "./Footer";
 import { Header } from "./Header";
 import { Note } from "./Note";
-
 import CreateArea from "./CreateArea";
+import { useState } from "react";
+
 export function App() {
-  function addNote(note) {
-    console.log(note);
+  const [notes, setNotes] = useState([]);
+
+  function addNote(newNote) {
+    setNotes((prevNotes) => {
+      return [...prevNotes, newNote];
+    });
   }
 
   return (
